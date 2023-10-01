@@ -11,11 +11,11 @@ const MobileNavbar = () => {
   return (
     <nav className={`flex items-center justify-between md:hidden p-2 ${commonClasses}`}>
       <div>
-        <Image src={'/logo-mobile.svg'} alt="" width={24} height={25} />
+        <Image src={'/logo-mobile.svg'} alt='' width={24} height={25} />
       </div>
 
       <div>
-        <Image src={'/icon-options.svg'} alt="" width={4} height={15} />
+        <Image src={'/icon-options.svg'} alt='' width={4} height={15} />
       </div>
     </nav>
   )
