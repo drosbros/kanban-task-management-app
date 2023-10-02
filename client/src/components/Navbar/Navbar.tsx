@@ -1,5 +1,5 @@
 import Button from '@ui/Button'
-import Dropdown from '@ui/Dropdown'
+import PickBoardDropdown from '@components/PickBoardDropdown'
 import Image from 'next/image'
 import { ReactNode } from 'react'
 import { ThemeSwitcher, ThemedImage } from '@components/Theme'
@@ -20,9 +20,7 @@ const DesktopNavbar = ({ children }: Props) => {
         <ThemeSwitcher />
       </nav>
       <div className='flex-grow'>
-        <header className='p-4 border-b-[1px] border-lines-light dark:border-lines-dark'>
-          <Dropdown />
-        </header>
+        <header className='p-4 border-b-[1px] border-lines-light dark:border-lines-dark'></header>
         {children}
       </div>
     </div>
@@ -35,7 +33,7 @@ const MobileNavbar = ({ children }: Props) => {
       <nav className={`flex items-center justify-between p-4 ${commonClasses}`}>
         <div className='flex gap-4'>
           <Image src={'/logo-mobile.svg'} alt='kanban logo' width={24} height={25} />
-          <Dropdown />
+          <PickBoardDropdown />
         </div>
 
         <div className='flex gap-4'>
