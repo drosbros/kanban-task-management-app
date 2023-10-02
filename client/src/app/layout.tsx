@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import Navbar from '@/components/Navbar'
+import { ThemeProvider } from '@components/Theme'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={`${jakarta.className} text-black dark:text-white`}>
-        <Navbar>{children}</Navbar>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
+          <Navbar>{children}</Navbar>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -28,7 +28,14 @@ const buttonVariants = cva(['rounded-full', 'text-center', 'font-bold', 'transit
 type Props = VariantProps<typeof buttonVariants> & ComponentPropsWithRef<'button'>
 
 const Button = forwardRef<HTMLButtonElement, Props>(({ className, size, variant, disabled, ...props }, ref) => {
-  return <button ref={ref} disabled className={cn(buttonVariants({ variant, size, disabled, className }))} {...props} />
+  return (
+    <button
+      ref={ref}
+      disabled={disabled}
+      className={cn(buttonVariants({ variant, size, disabled, className }))}
+      {...props}
+    />
+  )
 })
 
 Button.displayName = 'Button'
