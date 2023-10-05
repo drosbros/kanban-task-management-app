@@ -1,14 +1,17 @@
-import Button from '@components/ui/Button'
+import Button from '@/components/ui/Button'
 
-export default function Home() {
-  return (
-    <main className='bg-white dark:bg-gray-very-dark min-h-screen grid place-items-center'>
-      <Button variant={'primary'} size={'large'} className='min-w-[300px]'>
-        Button Primary (L)
-      </Button>
-      <Button variant={'primary'}>Button Primary</Button>
-      <Button variant={'secondary'}>Button Primary (L)</Button>
-      <Button variant={'destructive'}>Button Primary (L)</Button>
-    </main>
-  )
+import fs from 'fs/promises'
+import path from 'path'
+import BoardDisplay from './BoardDisplay'
+
+async function getMockData() {
+  const filePath = path.join(process.cwd(), 'json/data.json')
+  const json = (await fs.readFile(filePath)).toString()
+  return JSON.parse(json) as { boards: Board[] }
+}
+
+export default async function Home() {
+  const { boards } = await getMockData()
+
+  return <main className='bg-white dark:bg-gray-very-dark min-h-screen grid place-items-center'></main>
 }
