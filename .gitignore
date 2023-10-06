@@ -41,4 +41,11 @@ next-env.d.ts
 *.xd
 *.sketch
 *.fig
-/designs
+/designs!/server/.ednv
+
+/.idea
+**/.venv
+__pycache__/
+data/
+**/.python-version
+**/.env
