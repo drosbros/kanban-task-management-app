@@ -9,7 +9,6 @@ class Issue(TimeStampedModel, models.Model):
         EPIC = ("EPIC", "Epic")
         TASK = ("TASK", "Task")
         BUG = ("BUG", "Bug")
-        SUBTASK = ("SUBTASK", "Sub-task")
 
     type = models.CharField(choices=IssueType.choices, default=IssueType.TASK, max_length=10)
     title = models.CharField(max_length=256, default="", blank=True)
