@@ -14,11 +14,13 @@
     "@headlessui/react": "^1.7.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "immer": "^10.0.3",
     "next": "latest",
     "next-themes": "^0.2.1",
     "react": "latest",
     "react-dom": "latest",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^1.14.0",
+    "zustand": "^4.4.2"
   },
   "devDependencies": {
     "@types/node": "latest",

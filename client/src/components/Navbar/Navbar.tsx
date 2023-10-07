@@ -1,8 +1,7 @@
 import Button from '@ui/Button'
-import PickBoardDropdown from '@components/PickBoardDropdown'
 import Image from 'next/image'
 import { ReactNode } from 'react'
-import { ThemeSwitcher, ThemedImage } from '@components/Theme'
+import { ThemeSwitcher } from '@components/Theme'
 
 const commonClasses = 'bg-white dark:bg-gray-dark'
 
@@ -10,13 +9,9 @@ const DesktopNavbar = ({ children }: Props) => {
   return (
     <div className={`hidden md:flex ${commonClasses}`}>
       <nav className='min-h-screen p-4 border-r-[1px] border-lines-light dark:border-lines-dark'>
-        <ThemedImage
-          lightSrc={'/logo-dark.svg'}
-          darkSrc={'/logo-light.svg'}
-          width={153}
-          height={26}
-          alt='kanban logo'
-        />
+        <Image data-hide-on-theme='dark' src='/logo-dark.svg' alt='kanban logo' width={153} height={26} />
+        <Image data-hide-on-theme='light' src='/logo-light.svg' alt='kanban logo' width={153} height={26} />
+
         <ThemeSwitcher />
       </nav>
       <div className='flex-grow'>
@@ -33,7 +28,6 @@ const MobileNavbar = ({ children }: Props) => {
       <nav className={`flex items-center justify-between p-4 ${commonClasses}`}>
         <div className='flex gap-4'>
           <Image src={'/logo-mobile.svg'} alt='kanban logo' width={24} height={25} />
-          <PickBoardDropdown />
         </div>
 
         <div className='flex gap-4'>
