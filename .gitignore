@@ -4,7 +4,7 @@
 /.vscode/
 
 # dependencies
-/node_modules
+**/node_modules
 /.pnp
 .pnp.js
 
@@ -12,7 +12,7 @@
 /coverage
 
 # next.js
-/.next/
+**/.next/
 /out/
 
 # production
@@ -41,8 +41,9 @@ next-env.d.ts
 *.xd
 *.sketch
 *.fig
-/designs!/server/.ednv
+/client/designs
 
+# server
 /.idea
 **/.venv
 __pycache__/
