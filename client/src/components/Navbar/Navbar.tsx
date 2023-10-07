@@ -9,12 +9,8 @@ const DesktopNavbar = ({ children }: Props) => {
   return (
     <div className={`hidden md:flex ${commonClasses}`}>
       <nav className='min-h-screen p-4 border-r-[1px] border-lines-light dark:border-lines-dark'>
-        <div data-hide-on-theme='dark'>
-          <Image src='/logo-dark.svg' alt='kanban logo' width={153} height={26} />
-        </div>
-        <div data-hide-on-theme='light'>
-          <Image src='/logo-light.svg' alt='kanban logo' width={153} height={26} />
-        </div>
+        <Image data-hide-on-theme='dark' src='/logo-dark.svg' alt='kanban logo' width={153} height={26} />
+        <Image data-hide-on-theme='light' src='/logo-light.svg' alt='kanban logo' width={153} height={26} />
 
         <ThemeSwitcher />
       </nav>
