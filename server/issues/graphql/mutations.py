@@ -1,7 +1,7 @@
 import graphene
 
 from accounts.models import User
-from issues.graphql.types import IssueQueryType
+from issues.graphql.types import IssueType
 from issues.models import Issue
 
 
@@ -10,10 +10,10 @@ class CreateIssue(graphene.Mutation):
         title = graphene.String()
         description = graphene.String()
         issue_type = graphene.Enum.from_enum(Issue.IssueTypeChoices)()
-        assignee_id = graphene.Int(required=False, default_value=None)
+        assignee_id = graphene.String(required=False, default_value=None)
 
     ok = graphene.Boolean()
-    issue = graphene.Field(IssueQueryType)
+    issue = graphene.Field(IssueType)
 
     @staticmethod
     def mutate(_, _info, title: str, description: str, issue_type: Issue.IssueTypeChoices, assignee_id: int | None):

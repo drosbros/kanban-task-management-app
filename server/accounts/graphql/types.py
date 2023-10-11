@@ -1,9 +1,8 @@
-from graphene_django import DjangoObjectType
-
 from accounts.models import User
+from commons.types import GrapheneObjectType
 
 
-class UserQueryType(DjangoObjectType):
+class UserQueryType(GrapheneObjectType):
     class Meta:
         model = User
         fields = (

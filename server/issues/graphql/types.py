@@ -1,9 +1,8 @@
-from graphene_django import DjangoObjectType
-
+from commons.types import GrapheneObjectType
 from issues.models import Issue
 
 
-class IssueQueryType(DjangoObjectType):
+class IssueType(GrapheneObjectType):
     class Meta:
         convert_choices_to_enum = False
         model = Issue
