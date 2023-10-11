@@ -7,5 +7,6 @@ from .types import IssueQueryType
 class Query(graphene.ObjectType):
     issues = graphene.List(IssueQueryType)
 
-    def resolve_issues(self, info):
+    @staticmethod
+    def resolve_issues(_, _info):
         return Issue.objects.all()

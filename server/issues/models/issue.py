@@ -11,7 +11,7 @@ class Issue(TimeStampedModel, models.Model):
         TASK = "TASK", _("Task")
         BUG = "BUG", _("Bug")
 
-    type = models.CharField(choices=IssueTypeChoices.choices, default=IssueTypeChoices.TASK, max_length=10)
+    type = models.CharField(choices=IssueTypeChoices.choices, default=IssueTypeChoices.TASK.value, max_length=4)
     title = models.CharField(max_length=256, default="", blank=True)
     description = models.TextField(default="", blank=True)
     assignee = models.ForeignKey(User, default=None, null=True, on_delete=models.SET_DEFAULT)
