@@ -1,7 +1,7 @@
 import Button from '@ui/Button'
 import Image from 'next/image'
 import { ReactNode } from 'react'
-import { ThemeSwitcher } from '@components/Theme'
+import { ThemeSwitcher } from '@components/theme'
 
 const commonClasses = 'bg-white dark:bg-gray-dark'
 
