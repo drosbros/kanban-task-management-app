@@ -1,5 +1,3 @@
-import Button from '@/components/ui/Button'
-
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -12,5 +10,9 @@ async function getMockData() {
 export default async function Home() {
   const { boards } = await getMockData()
 
-  return <main className=''>Home Pagedsad</main>
+  return (
+    <main className='bg-gray-light dark:bg-gray-very-dark w-full'>
+      Home Pagedsad
+    </main>
+  )
 }
