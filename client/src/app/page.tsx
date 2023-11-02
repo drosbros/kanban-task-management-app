@@ -12,7 +12,7 @@ export default async function Home() {
 
   return (
     <main className='bg-gray-light dark:bg-gray-very-dark w-full'>
-      Home Pagedsad
+      Home Page
     </main>
   )
 }

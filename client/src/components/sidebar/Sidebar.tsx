@@ -2,7 +2,6 @@
 
 import { Transition } from '@headlessui/react'
 import useDisclosure from '@hooks/useDisclosure'
-import { ThemeSwitcher } from '../theme'
 import SidebarHideButton from './SidebarHideButton'
 import SidebarShowButton from './SidebarShowButton'
 import SidebarThemeSwitcher from './SidebarThemeSwitcher'

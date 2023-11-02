@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
-import { ThemeProvider } from '@components/theme'
+import { ThemeProvider } from '@components/theme/ThemeProvider'
 import Header from '@components/Header'
 import Sidebar from '@components/sidebar/Sidebar'
 
@@ -12,7 +12,11 @@ export const metadata: Metadata = {
   description: "Frontend Mentor's task management application",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang='en'>
       <body className={`${jakarta.className} text-black dark:text-white`}>
