@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import { ThemeProvider } from '@components/theme'
 import Header from '@components/Header'
-import Sidebar from '@components/Sidebar'
+import Sidebar from '@components/sidebar/Sidebar'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -17,12 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <body className={`${jakarta.className} text-black dark:text-white`}>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='flex'>
-            <div className='hidden md:block'>
+          <div className='min-h-screen flex flex-col'>
+            <Header />
+            <div className='w-full flex h-full flex-grow'>
               <Sidebar />
-            </div>
-            <div className='w-full'>
-              <Header />
               {children}
             </div>
           </div>
