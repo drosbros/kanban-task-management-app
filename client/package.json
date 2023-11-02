@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "cd .. && husky install client/.husky",
-    "format": "prettier . --write"
+    "format": "prettier --write"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
