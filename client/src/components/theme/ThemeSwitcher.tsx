@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import Switch from '@ui/Switch'
 import { useTheme } from 'next-themes'
-import Button from '@components/ui/Button'
+import { useEffect, useState } from 'react'
 
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState(false)
@@ -17,8 +17,9 @@ export const ThemeSwitcher = () => {
   }
 
   return (
-    <Button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-      {theme === 'light' ? 'Dark' : 'Light'}
-    </Button>
+    <Switch
+      checked={theme === 'dark'}
+      onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+    />
   )
 }

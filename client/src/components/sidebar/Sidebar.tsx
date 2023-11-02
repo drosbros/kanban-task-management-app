@@ -1,11 +1,11 @@
 'use client'
 
-import useDisclosure from '@hooks/useDisclosure'
-import Image from 'next/image'
-import { ThemeSwitcher } from '../theme'
 import { Transition } from '@headlessui/react'
+import useDisclosure from '@hooks/useDisclosure'
+import { ThemeSwitcher } from '../theme'
 import SidebarHideButton from './SidebarHideButton'
 import SidebarShowButton from './SidebarShowButton'
+import SidebarThemeSwitcher from './SidebarThemeSwitcher'
 
 function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure(true)
@@ -23,7 +23,7 @@ function Sidebar() {
         <div className='h-full hidden md:flex w-auto overflow-hidden flex-col justify-between bg-white dark:bg-gray-dark border-r-2 border-lines-light dark:border-lines-dark'>
           <div></div>
           <div className='p-6 flex flex-col gap-4'>
-            <ThemeSwitcher />
+            <SidebarThemeSwitcher className='' />
             <SidebarHideButton onClick={() => onClose()} />
           </div>
         </div>
@@ -33,7 +33,10 @@ function Sidebar() {
         enter='transition-opacity duration-150 delay-500'
         enterFrom='opacity-0'
         enterTo='opacity-100'>
-        <SidebarShowButton onClick={() => onOpen()} className='absolute bottom-10 left-0' />
+        <SidebarShowButton
+          onClick={() => onOpen()}
+          className='absolute bottom-10 left-0'
+        />
       </Transition>
     </>
   )
