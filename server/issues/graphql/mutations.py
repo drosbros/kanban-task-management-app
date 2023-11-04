@@ -24,6 +24,7 @@ class CreateIssue(graphene.Mutation):
 
 class DeleteIssue(graphene.Mutation):
     ok = graphene.Boolean()
+    issue = graphene.Field(IssueType, required=False)
 
     class Arguments:
         issue_id = graphene.Int()
@@ -31,10 +32,12 @@ class DeleteIssue(graphene.Mutation):
     @staticmethod
     def mutate(_, _info, issue_id: int):
         issue = Issue.objects.filter(pk=issue_id).first()
-        if issue:
-            issue.delete()
-            return DeleteIssue(ok=True)
-        return DeleteIssue(ok=False)
+
+        if issue is None:
+            return DeleteIssue(ok=False, issue=None)
+
+        issue.delete()
+        return DeleteIssue(ok=True, issue=issue)
 
 
 class Mutation(graphene.ObjectType):

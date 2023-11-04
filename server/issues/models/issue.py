@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 from django_extensions.db.models import TimeStampedModel
 
 from accounts.models import User
+from boards.models import Board
+from categories.models import Category
 
 
 class Issue(TimeStampedModel, models.Model):
@@ -16,5 +18,8 @@ class Issue(TimeStampedModel, models.Model):
     description = models.TextField(default="", blank=True)
     assignee = models.ForeignKey(User, default=None, null=True, on_delete=models.SET_DEFAULT)
 
+    board = models.ForeignKey(Board, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, default=None, null=True, on_delete=models.SET_DEFAULT)
+
     def __str__(self):
-        return f"Issue - {self.type} - {self.title} - {self.assignee}"
+        return f"Issue - {self.type} - {self.title} - {self.assignee} - {self.board}"

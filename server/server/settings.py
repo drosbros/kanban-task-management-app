@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     "graphene_django",
     "accounts.apps.AccountsConfig",
     "issues.apps.IssuesConfig",
+    "boards.apps.BoardsConfig",
+    "categories.apps.CategoriesConfig",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
@@ -86,6 +88,11 @@ AUTHENTICATION_BACKENDS = [
     "graphql_jwt.backends.JSONWebTokenBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

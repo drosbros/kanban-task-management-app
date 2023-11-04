@@ -7,7 +7,7 @@ from .types import IssueType
 class Query(graphene.ObjectType):
     issues = graphene.List(IssueType)
     issue_by_id = graphene.Field(IssueType, pk=graphene.Int())
-    user_issues = graphene.List(IssueType, pk=graphene.Int())
+    issues_by_assignee_id = graphene.List(IssueType, pk=graphene.Int())
 
     @staticmethod
     def resolve_issues(_, _info, **kwargs):
@@ -18,5 +18,5 @@ class Query(graphene.ObjectType):
         return Issue.objects.filter(pk=pk).first()
 
     @staticmethod
-    def resolve_user_issues(_, _info, pk: int, **kwargs):
+    def resolve_issues_by_assignee_id(_, _info, pk: int, **kwargs):
         return Issue.objects.filter(assignee_id=pk)
