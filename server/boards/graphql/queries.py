@@ -16,5 +16,6 @@ class Query(graphene.ObjectType):
         return Board.objects.all()
 
     @staticmethod
+    @login_required
     def resolve_board_by_id(_, _info, pk: int, **kwargs):
         return Board.objects.filter(pk=pk).first()

@@ -1,4 +1,5 @@
 import graphene
+from graphql_jwt.decorators import login_required
 
 from issues.models import Issue
 from .types import IssueType
@@ -10,13 +11,17 @@ class Query(graphene.ObjectType):
     issues_by_assignee_id = graphene.List(IssueType, pk=graphene.Int())
 
     @staticmethod
-    def resolve_issues(_, _info, **kwargs):
+    @login_required
+    def resolve_issues(_, info, **kwargs):
+        print(info.context.user)
         return Issue.objects.all()
 
     @staticmethod
+    @login_required
     def resolve_issue_by_id(_, _info, pk: int, **kwargs):
         return Issue.objects.filter(pk=pk).first()
 
     @staticmethod
+    @login_required
     def resolve_issues_by_assignee_id(_, _info, pk: int, **kwargs):
         return Issue.objects.filter(assignee_id=pk)

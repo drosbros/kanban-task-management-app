@@ -16,10 +16,11 @@ class Issue(TimeStampedModel, models.Model):
     type = models.CharField(choices=IssueTypeChoices.choices, default=IssueTypeChoices.TASK.value, max_length=4)
     title = models.CharField(max_length=256, default="", blank=True)
     description = models.TextField(default="", blank=True)
-    assignee = models.ForeignKey(User, default=None, null=True, on_delete=models.SET_DEFAULT)
+    assignee = models.ForeignKey(User, default=None, null=True, on_delete=models.SET_DEFAULT, related_name="assigned_issues")
 
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, default=None, null=True, on_delete=models.SET_DEFAULT)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Issue - {self.type} - {self.title} - {self.assignee} - {self.board}"
