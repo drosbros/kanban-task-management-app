@@ -16,7 +16,7 @@ class CreateCategory(graphene.Mutation):
     @staticmethod
     @login_required
     def mutate(root, info, name: str, board_id: int):
-        category = Category.objects.create(name=name, board_id=board_id)
+        category = Category.objects.create(name=name, board_id=board_id, creator=info.context.user)
         return CreateCategory(ok=True, category=category)
 
 
@@ -37,3 +37,8 @@ class DeleteCategory(graphene.Mutation):
 
         category.delete()
         return DeleteCategory()
+
+
+class Mutation(graphene.ObjectType):
+    create_category = CreateCategory.Field()
+    delete_category = DeleteCategory.Field()

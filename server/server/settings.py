@@ -1,4 +1,5 @@
 import os
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "graphene_django",
+    "graphql_jwt.refresh_token.apps.RefreshTokenConfig",
     "accounts.apps.AccountsConfig",
     "issues.apps.IssuesConfig",
     "boards.apps.BoardsConfig",
@@ -92,6 +94,8 @@ AUTHENTICATION_BACKENDS = [
 GRAPHQL_JWT = {
     "JWT_VERIFY_EXPIRATION": True,
     "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+    "JWT_EXPIRATION_DELTA": timedelta(minutes=10),
+    "JWT_REFRESH_EXPIRATION_DELTA": timedelta(days=7),
 }
 
 # Password validation

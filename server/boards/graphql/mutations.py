@@ -15,7 +15,7 @@ class CreateBoard(graphene.Mutation):
     @staticmethod
     @login_required
     def mutate(root, info, name: str):
-        board = Board.objects.create(name=name, creator=info.context.user.id)
+        board = Board.objects.create(name=name, creator=info.context.user)
         return CreateBoard(ok=True, board=board)
 
 
@@ -36,3 +36,8 @@ class DeleteBoard(graphene.Mutation):
 
         board.delete()
         return DeleteBoard()
+
+
+class Mutation(graphene.ObjectType):
+    create_board = CreateBoard.Field()
+    delete_board = DeleteBoard.Field()
