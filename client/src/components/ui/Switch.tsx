@@ -9,7 +9,8 @@ function Switch(props: Props) {
   return (
     <HeadlessSwitch
       {...props}
-      className={`bg-purple-default px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full`}>
+      className={`bg-purple-default px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full`}
+    >
       <span className='sr-only'>Use setting</span>
       <div
         className={cn(
@@ -17,7 +18,8 @@ function Switch(props: Props) {
           {
             'justify-end': props.checked,
           }
-        )}>
+        )}
+      >
         <span
           aria-hidden='true'
           className={cn(

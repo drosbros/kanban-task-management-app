@@ -1,9 +1,12 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
-import { ThemeProvider } from '@components/theme/ThemeProvider'
-import Header from '@components/Header'
+import Header from '@components/header/Header'
 import Sidebar from '@components/sidebar/Sidebar'
+import { ThemeProvider } from '@components/theme/ThemeProvider'
+import type { Metadata } from 'next'
+
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import './globals.css'
+import SidebarShowButton from '@components/sidebar/SidebarShowButton'
+import PageTransition from './PageTransition'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -23,9 +26,11 @@ export default function RootLayout({
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <div className='w-full flex h-full flex-grow'>
+            <div className='flex grow relative bg:white dark:bg-gray-very-dark'>
               <Sidebar />
-              {children}
+              <PageTransition className='grow isolate'>
+                {children}
+              </PageTransition>
             </div>
           </div>
         </ThemeProvider>
