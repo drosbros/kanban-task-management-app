@@ -28,9 +28,7 @@ export default function RootLayout({
             <Header />
             <div className='flex grow relative bg:white dark:bg-gray-very-dark'>
               <Sidebar />
-              <PageTransition className='grow isolate'>
-                {children}
-              </PageTransition>
+              <PageTransition>{children}</PageTransition>
             </div>
           </div>
         </ThemeProvider>

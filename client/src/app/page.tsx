@@ -11,5 +11,5 @@ async function getMockData() {
 export default async function Home() {
   const { boards } = await getMockData()
 
-  return <BoardView boards={boards} />
+  return <div>Boards</div>
 }

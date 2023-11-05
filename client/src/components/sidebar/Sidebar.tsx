@@ -9,7 +9,6 @@ import SidebarThemeSwitcher from './SidebarThemeSwitcher'
 
 function Sidebar() {
   const isOpen = useSidebarStore((state) => state.isOpen)
-  console.log(isOpen)
 
   return (
     <AnimatePresence initial={false}>
@@ -20,7 +19,7 @@ function Sidebar() {
           animate={{ translateX: '0%' }}
           exit={{ translateX: '-100%' }}
           transition={{ duration: 0.8 }}
-          className='z-20 translate-x-0 hidden md:flex flex-col justify-between bg-white dark:bg-gray-dark border-r-2 border-lines-light dark:border-lines-dark'
+          className='min-w-[18rem] z-20 translate-x-0 hidden md:flex flex-col justify-between bg-white dark:bg-gray-dark border-r-2 border-lines-light dark:border-lines-dark'
         >
           <div></div>
           <div className='p-6 flex flex-col gap-4'>

@@ -15,14 +15,14 @@ function PageTransition({ className, children, ...rest }: Props) {
       transition={{ duration: 0.8 }}
       variants={{
         sidebarOpen: {
-          x: '200px',
+          left: '18rem',
         },
         sidebarClosed: {
-          x: '-200px',
+          left: '0',
         },
       }}
       animate={isOpen ? 'sidebarOpen' : 'sidebarClosed'}
-      className={cn(className)}
+      className={cn(className, 'absolute')}
     >
       {children}
     </motion.div>
