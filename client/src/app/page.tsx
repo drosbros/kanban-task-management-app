@@ -12,5 +12,5 @@ async function getMockData() {
 export default async function Home() {
   const { boards } = await getMockData()
 
-  return <main className=''>Home Pagedsad</main>
+  return <main>Home Page</main>
 }

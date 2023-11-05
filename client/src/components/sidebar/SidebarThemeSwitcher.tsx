@@ -16,7 +16,8 @@ function SidebarThemeSwitcher({ className, ...rest }: Props) {
       className={cn(
         'w-full flex justify-center items-center bg-gray-light dark:bg-gray-very-dark p-4 rounded-lg',
         className
-      )}>
+      )}
+    >
       <div className='flex gap-4 items-center'>
         <Image src={sun} alt='' />
         <ThemeSwitcher />
