@@ -20,8 +20,8 @@ function Main({ boards }: Props) {
     >
       <div
         className={cn('p-6 z-10 relative h-full transition-[left]', {
-          'left-[18rem]': isOpen,
-          'left-0': !isOpen,
+          'lg:left-[18rem]': isOpen,
+          'lg:left-0': !isOpen,
         })}
       >
         <View boards={boards} />
