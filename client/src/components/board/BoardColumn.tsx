@@ -1,11 +1,21 @@
 import React from 'react'
+import BoardTask from './BoardTask'
 
 type Props = {
   column: Column
 }
 
 function BoardColumn({ column }: Props) {
-  return <div>BoardColumn</div>
+  return (
+    <div>
+      <h2>{column.name}</h2>
+      <div className='grid gap-5'>
+        {column.tasks.map((task) => (
+          <BoardTask key={task.title} task={task} />
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default BoardColumn
