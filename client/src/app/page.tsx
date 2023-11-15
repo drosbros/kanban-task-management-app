@@ -1,6 +1,8 @@
 import fs from 'fs/promises'
 import path from 'path'
-import BoardView from './BoardView'
+import Main from './Main'
+import Sidebar from '@components/sidebar/Sidebar'
+import { cn } from '@lib/utils'
 
 async function getMockData() {
   const filePath = path.join(process.cwd(), 'json/data.json')
@@ -11,5 +13,10 @@ async function getMockData() {
 export default async function Home() {
   const { boards } = await getMockData()
 
-  return <div>Boards</div>
+  return (
+    <>
+      <Sidebar className={cn('fixed left-0 min-w-[18rem] z-20 transition-transform')} />
+      <Main boards={boards} />
+    </>
+  )
 }

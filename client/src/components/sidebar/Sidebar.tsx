@@ -1,45 +1,39 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useSidebarStore } from '@stores/sidebarStore'
-import { AnimatePresence } from 'framer-motion'
+import { ComponentPropsWithRef, forwardRef } from 'react'
 import SidebarHideButton from './SidebarHideButton'
-import SidebarShowButton from './SidebarShowButton'
 import SidebarThemeSwitcher from './SidebarThemeSwitcher'
+import { cn } from '@lib/utils'
+import { useSidebarStore } from '@stores/sidebarStore'
+import SidebarShowButton from './SidebarShowButton'
 
-function Sidebar() {
+type Props = ComponentPropsWithRef<'div'>
+
+const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, ...rest }, ref) {
   const isOpen = useSidebarStore((state) => state.isOpen)
 
   return (
-    <AnimatePresence initial={false}>
-      {isOpen ? (
-        <motion.div
-          key={'sidebar'}
-          initial={{ translateX: '-100%' }}
-          animate={{ translateX: '0%' }}
-          exit={{ translateX: '-100%' }}
-          transition={{ duration: 0.8 }}
-          className='min-w-[18rem] z-20 translate-x-0 hidden md:flex flex-col justify-between bg-white dark:bg-gray-dark border-r-2 border-lines-light dark:border-lines-dark'
-        >
-          <div></div>
-          <div className='p-6 flex flex-col gap-4'>
-            <SidebarThemeSwitcher />
-            <SidebarHideButton />
-          </div>
-        </motion.div>
-      ) : (
-        <motion.div
-          key={'button'}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ delay: 0.8, duration: 0.2 }}
-        >
-          <SidebarShowButton className='absolute bottom-10 left-0 z-40' />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <>
+      <div
+        ref={ref}
+        className={cn(
+          'h-full border-r-2 border-lines-light dark:border-lines-dark bg-white dark:bg-gray-dark cursor-default',
+          {
+            '-translate-x-full': !isOpen,
+            'translate-x-0': isOpen,
+          },
+          className
+        )}
+        {...rest}
+      >
+        <div></div>
+        <div className='p-6 flex flex-col gap-4'>
+          <SidebarThemeSwitcher />
+          <SidebarHideButton />
+        </div>
+      </div>
+      {!isOpen && <SidebarShowButton className='z-30 absolute bottom-6 left-0' />}
+    </>
   )
-}
-
+})
 export default Sidebar

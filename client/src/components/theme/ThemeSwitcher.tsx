@@ -16,10 +16,5 @@ export const ThemeSwitcher = () => {
     return null
   }
 
-  return (
-    <Switch
-      checked={theme === 'dark'}
-      onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-    />
-  )
+  return <Switch checked={theme === 'dark'} onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
 }

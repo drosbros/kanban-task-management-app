@@ -1,22 +1,11 @@
-'use client'
-
-import React from 'react'
-import ScrollContainer from 'react-indiana-drag-scroll'
+import React, { memo } from 'react'
 
 type Props = {
   boards: Board[]
 }
 
 function BoardView({ boards }: Props) {
-  return (
-    <div className='flex gap-20 absolute left-72'>
-      {Array.from({ length: 10 }).map((_, i) => (
-        <div key={i} className='w-[200px] aspect-square bg-red-default'>
-          {i}
-        </div>
-      ))}
-    </div>
-  )
+  return <div>BoardView</div>
 }
 
-export default BoardView
+export default memo(BoardView)

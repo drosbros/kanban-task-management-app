@@ -16,6 +16,7 @@ declare global {
   }
 
   type Column = {
+    id: string
     name: string
     tasks: Task[]
   }
