@@ -1,8 +1,7 @@
+import Sidebar from '@components/sidebar/Sidebar'
 import fs from 'fs/promises'
 import path from 'path'
-import Main from './Main'
-import Sidebar from '@components/sidebar/Sidebar'
-import { cn } from '@lib/utils'
+import SidebarTransition from './SidebarTransition'
 
 async function getMockData() {
   const filePath = path.join(process.cwd(), 'json/data.json')
@@ -15,8 +14,8 @@ export default async function Home() {
 
   return (
     <>
-      <Sidebar className={cn('fixed left-0 min-w-[18rem] z-20 transition-transform')} />
-      <Main boards={boards} />
+      <Sidebar />
+      <SidebarTransition boards={boards} />
     </>
   )
 }

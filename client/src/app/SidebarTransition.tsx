@@ -4,13 +4,13 @@ import { cn } from '@lib/utils'
 import { useSidebarStore } from '@stores/sidebarStore'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
-import View from './View'
+import BoardView from './BoardView'
 
 type Props = {
   boards: Board[]
 }
 
-function Main({ boards }: Props) {
+function SidebarTransition({ boards }: Props) {
   const isOpen = useSidebarStore((state) => state.isOpen)
 
   return (
@@ -24,10 +24,10 @@ function Main({ boards }: Props) {
           'lg:left-0': !isOpen,
         })}
       >
-        <View boards={boards} />
+        <BoardView boards={boards} />
       </div>
     </ScrollContainer>
   )
 }
 
-export default Main
+export default SidebarTransition

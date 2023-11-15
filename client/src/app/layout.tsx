@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <div className='grow h-1 bg-gray-light dark:bg-gray-very-dark'>{children}</div>
+            <div className='relative grow h-1 bg-gray-light dark:bg-gray-very-dark'>{children}</div>
           </div>
         </ThemeProvider>
       </body>

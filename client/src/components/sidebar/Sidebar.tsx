@@ -17,7 +17,7 @@ const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, 
       <div
         ref={ref}
         className={cn(
-          'hidden lg:block h-full border-r-2 border-lines-light dark:border-lines-dark bg-white dark:bg-gray-dark cursor-default',
+          'left-0 min-w-[18rem] h-full py-20 z-20 transition-transform hidden fixed lg:flex flex-col justify-between border-r-2 border-lines-light dark:border-lines-dark bg-white dark:bg-gray-dark cursor-default',
           {
             '-translate-x-full': !isOpen,
             'translate-x-0': isOpen,

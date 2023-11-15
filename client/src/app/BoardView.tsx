@@ -6,7 +6,7 @@ type Props = {
   boards: Board[]
 }
 
-function View({ boards }: Props) {
+function BoardView({ boards }: Props) {
   const currentBoard = useBoardStore((state) => state.currentBoard)
   const { setSelectedBoard, setBoards } = useBoardActions()
 
@@ -21,4 +21,4 @@ function View({ boards }: Props) {
   return <div>{currentBoard && <Board board={currentBoard} />}</div>
 }
 
-export default memo(View)
+export default memo(BoardView)
