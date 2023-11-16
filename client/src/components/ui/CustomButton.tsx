@@ -7,7 +7,7 @@ type Props = ComponentProps<typeof Button> & {
   isActive: boolean
 }
 
-function SidebarButton({ className, isActive, ...rest }: Props) {
+function CustomButton({ className, isActive, ...rest }: Props) {
   return (
     <Button
       {...rest}
@@ -20,4 +20,4 @@ function SidebarButton({ className, isActive, ...rest }: Props) {
   )
 }
 
-export default SidebarButton
+export default CustomButton

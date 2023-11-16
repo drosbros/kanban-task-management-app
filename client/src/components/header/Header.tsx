@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import HeaderBoardSwitcher from './HeaderBoardSwitcher'
 
 function Header() {
   return (
@@ -10,8 +11,9 @@ function Header() {
             <Image data-hide-on-theme='light' src='/brand/logo-light.svg' alt='kanban logo' width={153} height={26} />
           </div>
         </div>
-        <div className='lg:hidden p-4'>
-          <Image src={'/brand/logo-mobile.svg'} alt='kanban logo' width={24} height={25} />
+        <div className='lg:hidden p-4 flex gap-4 py-4 items-center isolate'>
+          <Image src={'/brand/logo-mobile.svg'} alt='kanban logo' width={30} height={31} />
+          <HeaderBoardSwitcher />
         </div>
       </div>
       <div>

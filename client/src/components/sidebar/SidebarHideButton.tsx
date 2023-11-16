@@ -3,7 +3,7 @@
 import { useSidebarActions } from '@stores/sidebarStore'
 import Image from 'next/image'
 import { ComponentPropsWithoutRef } from 'react'
-import SidebarButton from './SidebarButton'
+import CustomButton from '../ui/CustomButton'
 
 type Props = ComponentPropsWithoutRef<'button'>
 
@@ -11,7 +11,7 @@ function SidebarHideButton(props: Props) {
   const { close } = useSidebarActions()
 
   return (
-    <SidebarButton
+    <CustomButton
       {...props}
       onClick={() => close()}
       isActive={false}
@@ -19,7 +19,7 @@ function SidebarHideButton(props: Props) {
     >
       <Image src='/icon/icon-hide-sidebar.svg' alt='hide sidebar' width={16} height={16} />
       Hide Sidebar
-    </SidebarButton>
+    </CustomButton>
   )
 }
 
