@@ -9,7 +9,7 @@ import { cn } from '@lib/utils'
 
 type Props = ComponentPropsWithoutRef<'div'>
 
-function SidebarThemeSwitcher({ className, ...rest }: Props) {
+function CustomThemeSwitcher({ className, ...rest }: Props) {
   return (
     <div
       {...rest}
@@ -27,4 +27,4 @@ function SidebarThemeSwitcher({ className, ...rest }: Props) {
   )
 }
 
-export default SidebarThemeSwitcher
+export default CustomThemeSwitcher

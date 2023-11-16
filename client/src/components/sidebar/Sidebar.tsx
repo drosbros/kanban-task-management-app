@@ -2,7 +2,7 @@
 
 import { ComponentPropsWithRef, forwardRef } from 'react'
 import SidebarHideButton from './SidebarHideButton'
-import SidebarThemeSwitcher from './SidebarThemeSwitcher'
+import CustomThemeSwitcher from './CustomThemeSwitcher'
 import { cn } from '@lib/utils'
 import { useSidebarStore } from '@stores/sidebarStore'
 import SidebarShowButton from './SidebarShowButton'
@@ -30,7 +30,7 @@ const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, 
         <SidebarBoardSwitcher />
         <div className='flex flex-col gap-4'>
           <div className='px-8'>
-            <SidebarThemeSwitcher />
+            <CustomThemeSwitcher />
           </div>
           <SidebarHideButton />
         </div>
