@@ -6,11 +6,7 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
 import BoardView from './BoardView'
 
-type Props = {
-  boards: Board[]
-}
-
-function SidebarTransition({ boards }: Props) {
+function SidebarTransition({ children }: ChildrenProps) {
   const isOpen = useSidebarStore((state) => state.isOpen)
 
   return (
@@ -24,7 +20,7 @@ function SidebarTransition({ boards }: Props) {
           'lg:left-0': !isOpen,
         })}
       >
-        <BoardView boards={boards} />
+        {children}
       </div>
     </ScrollContainer>
   )

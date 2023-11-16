@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 
 import './globals.css'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import SidebarTransition from './SidebarTransition'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
@@ -20,7 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <div className='relative grow h-1 bg-gray-light dark:bg-gray-very-dark'>{children}</div>
+            <div className='relative grow h-1 bg-gray-light dark:bg-gray-very-dark'>
+              <Sidebar />
+              <SidebarTransition>{children}</SidebarTransition>
+            </div>
           </div>
         </ThemeProvider>
       </body>
