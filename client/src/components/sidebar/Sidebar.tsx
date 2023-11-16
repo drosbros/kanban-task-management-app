@@ -6,6 +6,7 @@ import SidebarThemeSwitcher from './SidebarThemeSwitcher'
 import { cn } from '@lib/utils'
 import { useSidebarStore } from '@stores/sidebarStore'
 import SidebarShowButton from './SidebarShowButton'
+import SidebarBoardSwitcher from './SidebarBoardSwitcher'
 
 type Props = ComponentPropsWithRef<'div'>
 
@@ -17,7 +18,7 @@ const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, 
       <div
         ref={ref}
         className={cn(
-          'left-0 min-w-[18rem] h-full py-20 z-20 transition-transform hidden fixed lg:flex flex-col justify-between border-r-2 border-lines-light dark:border-lines-dark bg-white dark:bg-gray-dark cursor-default',
+          'left-0 min-w-[18rem] h-full py-8 pb-24 z-20 transition-transform hidden fixed lg:flex flex-col justify-between border-r-2 border-lines-light dark:border-lines-dark bg-white dark:bg-gray-dark cursor-default',
           {
             '-translate-x-full': !isOpen,
             'translate-x-0': isOpen,
@@ -26,8 +27,8 @@ const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, 
         )}
         {...rest}
       >
-        <div></div>
-        <div className='p-6 flex flex-col gap-4'>
+        <SidebarBoardSwitcher />
+        <div className='flex flex-col gap-4 px-8'>
           <SidebarThemeSwitcher />
           <SidebarHideButton />
         </div>

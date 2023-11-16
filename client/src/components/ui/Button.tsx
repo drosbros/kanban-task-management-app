@@ -10,6 +10,7 @@ const buttonVariants = cva(['rounded-full', 'text-center', 'font-bold', 'transit
       secondary:
         'bg-purple-default/10 hover:bg-purple-default/25 text-purple-default dark:bg-white dark:hover:bg-white',
       destructive: 'bg-red-default hover:bg-red-light text-white',
+      unstyled: '',
     },
     size: {
       default: 'text-sm px-3 py-2.5',
