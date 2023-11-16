@@ -13,8 +13,9 @@ function SidebarButton({ className, isActive, boardName, ...rest }: Props) {
     <Button
       {...rest}
       variant={'unstyled'}
-      className={cn(className, 'px-8 rounded-l-none w-11/12 text-gray-medium', {
+      className={cn(className, 'px-8 py-3 font-bold text-md rounded-l-none w-11/12 text-gray-medium', {
         'bg-purple-default text-white': isActive,
+        'hover:bg-purple-default/10 dark:hover:bg-white hover:text-purple-default': !isActive,
       })}
     />
   )

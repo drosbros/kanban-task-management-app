@@ -20,13 +20,14 @@ function SidebarBoardSwitcher() {
         {boards.map((board) => (
           <SidebarButton
             key={board.name}
-            className='flex items-center gap-4'
+            className='flex items-center gap-4 group'
             boardName={board.name}
             isActive={board === currentBoard}
           >
             <BoardIcon
               className={cn({
                 'fill-white': board === currentBoard,
+                'group-hover:fill-purple-default': board !== currentBoard,
               })}
             />
             {board.name}
