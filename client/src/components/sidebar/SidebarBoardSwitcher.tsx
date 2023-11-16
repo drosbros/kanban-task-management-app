@@ -2,7 +2,7 @@
 
 import BoardIcon from '@components/icons/BoardIcon'
 import { cn } from '@lib/utils'
-import { useBoardStore } from '@stores/boardStore'
+import { useBoardActions, useBoardStore } from '@stores/boardStore'
 import SidebarButton from './SidebarButton'
 
 function SidebarBoardSwitcher() {
@@ -11,14 +11,23 @@ function SidebarBoardSwitcher() {
     currentBoard: state.currentBoard,
   }))
 
+  const { setSelectedBoard } = useBoardActions()
+
+  const handleClick = (board: Board) => setSelectedBoard(board)
+
   return (
     <div>
       <h3 className='px-8 uppercase text-gray-medium text-sm font-bold tracking-widest'>
         All Boards ({boards.length})
       </h3>
       <div className='grid gap-4 mt-6'>
-        {boards.map((board) => (
-          <SidebarButton key={board.name} className='flex items-center gap-4 group' isActive={board === currentBoard}>
+        {boards.map((board, index) => (
+          <SidebarButton
+            key={index}
+            className='flex items-center gap-4 group'
+            isActive={board === currentBoard}
+            onClick={() => handleClick(board)}
+          >
             <BoardIcon
               className={cn({
                 'fill-white': board === currentBoard,
