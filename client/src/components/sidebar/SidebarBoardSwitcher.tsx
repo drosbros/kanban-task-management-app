@@ -3,7 +3,7 @@
 import BoardIcon from '@components/icons/BoardIcon'
 import { cn } from '@lib/utils'
 import { useBoardStore } from '@stores/boardStore'
-import SidebarButton from './SidebarBoardSwitcherButton'
+import SidebarButton from './SidebarButton'
 
 function SidebarBoardSwitcher() {
   const { boards, currentBoard } = useBoardStore((state) => ({
@@ -18,12 +18,7 @@ function SidebarBoardSwitcher() {
       </h3>
       <div className='grid gap-4 mt-6'>
         {boards.map((board) => (
-          <SidebarButton
-            key={board.name}
-            className='flex items-center gap-4 group'
-            boardName={board.name}
-            isActive={board === currentBoard}
-          >
+          <SidebarButton key={board.name} className='flex items-center gap-4 group' isActive={board === currentBoard}>
             <BoardIcon
               className={cn({
                 'fill-white': board === currentBoard,

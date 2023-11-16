@@ -7,7 +7,10 @@ type Props = ComponentPropsWithoutRef<typeof HeadlessSwitch>
 
 function Switch(props: Props) {
   return (
-    <HeadlessSwitch {...props} className={`bg-purple-default px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full`}>
+    <HeadlessSwitch
+      {...props}
+      className={`bg-purple-default hover:bg-purple-light transition-colors px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full`}
+    >
       <span className='sr-only'>Use setting</span>
       <div
         className={cn('w-full h-full flex items-center justify-start transition-all duration-150', {

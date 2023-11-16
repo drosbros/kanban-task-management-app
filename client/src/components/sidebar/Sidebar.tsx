@@ -28,8 +28,10 @@ const Sidebar = forwardRef<HTMLDivElement, Props>(function Sidebar({ className, 
         {...rest}
       >
         <SidebarBoardSwitcher />
-        <div className='flex flex-col gap-4 px-8'>
-          <SidebarThemeSwitcher />
+        <div className='flex flex-col gap-4'>
+          <div className='px-8'>
+            <SidebarThemeSwitcher />
+          </div>
           <SidebarHideButton />
         </div>
       </div>

@@ -5,10 +5,9 @@ import Image from 'next/image'
 
 type Props = ComponentProps<typeof Button> & {
   isActive: boolean
-  boardName: string
 }
 
-function SidebarButton({ className, isActive, boardName, ...rest }: Props) {
+function SidebarButton({ className, isActive, ...rest }: Props) {
   return (
     <Button
       {...rest}
