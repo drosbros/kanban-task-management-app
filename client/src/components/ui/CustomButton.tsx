@@ -1,7 +1,6 @@
 import Button from '@components/ui/Button'
 import { cn } from '@lib/utils'
 import { ComponentProps } from 'react'
-import Image from 'next/image'
 
 type Props = ComponentProps<typeof Button> & {
   isActive: boolean
