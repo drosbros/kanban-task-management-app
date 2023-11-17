@@ -8,14 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "cd .. && husky install client/.husky",
-    "format": "prettier . --write"
+    "format": "prettier --write"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@tanstack/react-query": "^5.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "immer": "^10.0.3",
-    "next": "latest",
+    "next": "^14.0.1",
     "next-themes": "^0.2.1",
     "react": "latest",
     "react-dom": "latest",
