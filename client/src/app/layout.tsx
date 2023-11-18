@@ -3,9 +3,9 @@ import Sidebar from '@components/sidebar/Sidebar'
 import { ThemeProvider } from '@components/theme/ThemeProvider'
 import type { Metadata } from 'next'
 
-import './globals.css'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import SidebarTransition from './SidebarTransition'
+import './globals.css'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 

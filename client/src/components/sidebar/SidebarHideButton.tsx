@@ -3,7 +3,7 @@
 import { useSidebarActions } from '@stores/sidebarStore'
 import Image from 'next/image'
 import { ComponentPropsWithoutRef } from 'react'
-import CustomButton from '../ui/CustomButton'
+import CustomButton from '../CustomButton'
 
 type Props = ComponentPropsWithoutRef<'button'>
 

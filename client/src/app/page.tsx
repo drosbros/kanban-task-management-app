@@ -1,7 +1,5 @@
-import Sidebar from '@components/sidebar/Sidebar'
 import fs from 'fs/promises'
 import path from 'path'
-import SidebarTransition from './SidebarTransition'
 import BoardView from './BoardView'
 
 async function getMockData() {

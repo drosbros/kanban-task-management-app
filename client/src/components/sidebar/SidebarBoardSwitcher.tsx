@@ -3,7 +3,7 @@
 import BoardIcon from '@components/icons/BoardIcon'
 import { cn } from '@lib/utils'
 import { useBoardActions, useBoardStore } from '@stores/boardStore'
-import CustomButton from '../ui/CustomButton'
+import CustomButton from '../CustomButton'
 
 function SidebarBoardSwitcher() {
   const { boards, currentBoard } = useBoardStore((state) => ({

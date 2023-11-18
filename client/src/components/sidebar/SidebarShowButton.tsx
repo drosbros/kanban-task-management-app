@@ -1,10 +1,10 @@
 'use client'
 
-import React, { ComponentPropsWithoutRef } from 'react'
-import Button from '../ui/Button'
 import { cn } from '@lib/utils'
-import Image from 'next/image'
 import { useSidebarActions } from '@stores/sidebarStore'
+import Image from 'next/image'
+import { ComponentPropsWithoutRef } from 'react'
+import Button from '../ui/Button'
 
 type Props = ComponentPropsWithoutRef<typeof Button>
 

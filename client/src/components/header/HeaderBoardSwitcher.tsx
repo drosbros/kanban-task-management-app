@@ -1,9 +1,9 @@
 'use client'
 
+import CustomButton from '@components/CustomButton'
+import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
 import BoardIcon from '@components/icons/BoardIcon'
-import CustomThemeSwitcher from '@components/sidebar/CustomThemeSwitcher'
 import Button from '@components/ui/Button'
-import CustomButton from '@components/ui/CustomButton'
 import Dialog from '@components/ui/Dialog'
 import { cn } from '@lib/utils'
 import { useBoardActions, useBoardStore } from '@stores/boardStore'
