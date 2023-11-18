@@ -35,7 +35,7 @@ function Dialog({ onClose, open, children, className, ...rest }: Props) {
             >
               <HeadlessDialog.Panel
                 className={cn(
-                  'bg-white dark:bg-gray-dark relative transform overflow-hidden rounded-lg shadow-xl transition-all min-w-[180px] max-w-[450px] w-[75vw]',
+                  'bg-white dark:bg-gray-dark relative overflow-hidden rounded-lg shadow-xl min-w-[180px] max-w-[450px] w-[75vw]',
                   className
                 )}
               >
