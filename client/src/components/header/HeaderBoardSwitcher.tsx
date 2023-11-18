@@ -4,7 +4,7 @@ import BoardIcon from '@components/icons/BoardIcon'
 import CustomThemeSwitcher from '@components/sidebar/CustomThemeSwitcher'
 import Button from '@components/ui/Button'
 import CustomButton from '@components/ui/CustomButton'
-import CustomDialog from '@components/ui/Dialog'
+import Dialog from '@components/ui/Dialog'
 import { cn } from '@lib/utils'
 import { useBoardActions, useBoardStore } from '@stores/boardStore'
 import Image from 'next/image'
@@ -33,8 +33,8 @@ function HeaderBoardSwitcher({}: Props) {
         {currentBoard?.name}
         <Image src={`icon/icon-chevron-${isOpen ? 'up' : 'down'}.svg`} alt='' width={10} height={10} />
       </Button>
-      <CustomDialog onClose={setIsOpen} open={isOpen}>
-        <CustomDialog.Title>All Boards ({boards.length})</CustomDialog.Title>
+      <Dialog onClose={setIsOpen} open={isOpen}>
+        <Dialog.Title>All Boards ({boards.length})</Dialog.Title>
         {boards.map((board, index) => (
           <CustomButton
             key={index}
@@ -54,7 +54,7 @@ function HeaderBoardSwitcher({}: Props) {
         <div className='p-4'>
           <CustomThemeSwitcher />
         </div>
-      </CustomDialog>
+      </Dialog>
     </>
   )
 }

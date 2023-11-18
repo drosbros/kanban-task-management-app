@@ -1,15 +1,15 @@
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog as HeadlessDialog, Transition } from '@headlessui/react'
 import { cn } from '@lib/utils'
 import React, { ComponentProps, Fragment } from 'react'
 
 type Props = {
   open: boolean
-} & ComponentProps<typeof Dialog>
+} & ComponentProps<typeof HeadlessDialog>
 
-function CustomDialog({ onClose, open, children, className, ...rest }: Props) {
+function Dialog({ onClose, open, children, className, ...rest }: Props) {
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as='div' className='relative' onClose={onClose} {...rest}>
+      <HeadlessDialog as='div' className='relative' onClose={onClose} {...rest}>
         <Transition.Child
           as={Fragment}
           enter='ease-out duration-300'
@@ -33,25 +33,25 @@ function CustomDialog({ onClose, open, children, className, ...rest }: Props) {
               leaveFrom='opacity-100 translate-y-0 sm:scale-100'
               leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
             >
-              <Dialog.Panel
+              <HeadlessDialog.Panel
                 className={cn(
                   'bg-white dark:bg-gray-dark relative transform overflow-hidden rounded-lg shadow-xl transition-all min-w-[180px] max-w-[450px] w-[75vw]',
                   className
                 )}
               >
                 {children}
-              </Dialog.Panel>
+              </HeadlessDialog.Panel>
             </Transition.Child>
           </div>
         </div>
-      </Dialog>
+      </HeadlessDialog>
     </Transition.Root>
   )
 }
 
-function CustomDialogTitle(props: ComponentProps<typeof Dialog.Title>) {
+function CustomDialogTitle(props: ComponentProps<typeof HeadlessDialog.Title>) {
   return (
-    <Dialog.Title
+    <HeadlessDialog.Title
       as='h3'
       className='text-left uppercase text-gray-medium py-4 px-8 text-sm font-bold tracking-widest'
       {...props}
@@ -59,6 +59,6 @@ function CustomDialogTitle(props: ComponentProps<typeof Dialog.Title>) {
   )
 }
 
-CustomDialog.Title = CustomDialogTitle
+Dialog.Title = CustomDialogTitle
 
-export default CustomDialog
+export default Dialog
