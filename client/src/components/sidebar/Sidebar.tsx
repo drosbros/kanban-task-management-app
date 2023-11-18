@@ -1,8 +1,9 @@
 'use client'
 
+import { Transition } from '@headlessui/react'
 import { cn } from '@lib/utils'
 import { useSidebarStore } from '@stores/sidebarStore'
-import { ComponentPropsWithRef, forwardRef } from 'react'
+import { ComponentPropsWithRef } from 'react'
 import CustomThemeSwitcher from './CustomThemeSwitcher'
 import SidebarBoardSwitcher from './SidebarBoardSwitcher'
 import SidebarHideButton from './SidebarHideButton'
@@ -34,7 +35,19 @@ function Sidebar({ className, ...rest }: Props) {
           <SidebarHideButton />
         </div>
       </div>
-      {!isOpen && <SidebarShowButton className='z-30 absolute bottom-6 left-0' />}
+      <Transition
+        show={!isOpen}
+        as='div'
+        className={cn('z-30 absolute bottom-6 left-0')}
+        enter='ease-out duration-150 delay-75'
+        enterFrom='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
+        enterTo='opacity-100 translate-y-0 sm:scale-100'
+        leave='ease-in duration-75'
+        leaveFrom='opacity-100 translate-y-0 sm:scale-100'
+        leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
+      >
+        <SidebarShowButton />
+      </Transition>
     </>
   )
 }
