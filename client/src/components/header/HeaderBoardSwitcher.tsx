@@ -10,9 +10,7 @@ import { useBoardActions, useBoardStore } from '@stores/boardStore'
 import Image from 'next/image'
 import { useState } from 'react'
 
-type Props = {}
-
-function HeaderBoardSwitcher({}: Props) {
+function HeaderBoardSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
   const { boards, currentBoard } = useBoardStore((state) => ({
     boards: state.boards,
