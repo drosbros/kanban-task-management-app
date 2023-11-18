@@ -10,7 +10,7 @@ import SidebarTransition from './SidebarTransition'
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Frontend Mentor | Kanban task management web app',
+  title: 'Kanban task management web app',
   description: "Frontend Mentor's task management application",
 }
 
