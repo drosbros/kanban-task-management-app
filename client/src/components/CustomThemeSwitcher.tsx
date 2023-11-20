@@ -1,15 +1,15 @@
 'use client'
 
 import { ThemeSwitcher } from '@components/theme/ThemeSwitcher'
-import { cn } from '@lib/utils'
 import Image from 'next/image'
-import { ComponentPropsWithoutRef } from 'react'
-import moon from '/public/icon/icon-dark-theme.svg'
 import sun from '/public/icon/icon-light-theme.svg'
+import moon from '/public/icon/icon-dark-theme.svg'
+import { ComponentPropsWithoutRef } from 'react'
+import { cn } from '@lib/utils'
 
 type Props = ComponentPropsWithoutRef<'div'>
 
-function SidebarThemeSwitcher({ className, ...rest }: Props) {
+function CustomThemeSwitcher({ className, ...rest }: Props) {
   return (
     <div
       {...rest}
@@ -27,4 +27,4 @@ function SidebarThemeSwitcher({ className, ...rest }: Props) {
   )
 }
 
-export default SidebarThemeSwitcher
+export default CustomThemeSwitcher

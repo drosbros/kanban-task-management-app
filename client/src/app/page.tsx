@@ -1,7 +1,6 @@
-import Button from '@/components/ui/Button'
-
 import fs from 'fs/promises'
 import path from 'path'
+import BoardView from './BoardView'
 
 async function getMockData() {
   const filePath = path.join(process.cwd(), 'json/data.json')
@@ -12,5 +11,5 @@ async function getMockData() {
 export default async function Home() {
   const { boards } = await getMockData()
 
-  return <main>Home Page</main>
+  return <BoardView boards={boards} />
 }

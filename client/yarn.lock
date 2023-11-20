@@ -2324,6 +2324,11 @@ react-dom@latest:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-indiana-drag-scroll@^3.0.3-alpha:
+  version "3.0.3-alpha"
+  resolved "https://registry.yarnpkg.com/react-indiana-drag-scroll/-/react-indiana-drag-scroll-3.0.3-alpha.tgz#215572d235b330ce5e070b2e2f7f6872283e5a7d"
+  integrity sha512-Bo8Ium/CGs0oIYzk4wVDphuhrf2QRvLKTLO/+21M+czF1EQEII4w1UqoFs4lIGd84YpVL8UDXIcy2m9yzsFuRQ==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2964,8 +2969,8 @@ yocto-queue@^0.1.0:
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
 zustand@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.4.2.tgz#e26ad331d0a2e28a7d4aa126b00c7140b34904bb"
-  integrity sha512-qF3/vZHCrjPUX5DvPE3DPDZlh+FiAWRKlP9PI7SlW1MCk8q4vUCDqyWsbF8K41ne0Yx8eeeb0m1cypn1LqUMYQ==
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.4.5.tgz#0d5571affb30906b0c07c16557f2779ede9f4d8c"
+  integrity sha512-jgIrBBLKncQW74PA2Lclct3gwD4aPughwGE4FqlXrv3rDqQox7JCn8rwUiFK6ygJcbBAvfTf8fF+ICg7HLD2FQ==
   dependencies:
     use-sync-external-store "1.2.0"

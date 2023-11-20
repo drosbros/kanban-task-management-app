@@ -35,6 +35,11 @@ const config: Config = {
         '3xl': '20px',
         '4xl': '24px',
       },
+      keyframes: {
+        slide: {
+          to: { transform: 'translateX(-200px)' },
+        },
+      },
     },
   },
   plugins: [],

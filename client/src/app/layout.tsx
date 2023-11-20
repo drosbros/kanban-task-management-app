@@ -1,14 +1,16 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
-import { ThemeProvider } from '@components/theme'
-import Header from '@components/Header'
+import Header from '@components/header/Header'
 import Sidebar from '@components/sidebar/Sidebar'
+import { ThemeProvider } from '@components/theme/ThemeProvider'
+import type { Metadata } from 'next'
+
+import { Plus_Jakarta_Sans } from 'next/font/google'
+import SidebarTransition from './SidebarTransition'
+import './globals.css'
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Frontend Mentor | Kanban task management web app',
+  title: 'Kanban task management web app',
   description: "Frontend Mentor's task management application",
 }
 
@@ -19,9 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <div className='min-h-screen flex flex-col'>
             <Header />
-            <div className='w-full flex h-full flex-grow'>
+            <div className='relative grow h-1 bg-gray-light dark:bg-gray-very-dark'>
               <Sidebar />
-              {children}
+              <SidebarTransition>{children}</SidebarTransition>
             </div>
           </div>
         </ThemeProvider>
