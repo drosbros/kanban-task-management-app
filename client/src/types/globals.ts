@@ -1,3 +1,5 @@
+import React from 'react'
+
 declare global {
   interface ChildrenProps {
     children: React.ReactNode
@@ -12,7 +14,7 @@ declare global {
     title: string
     description: string
     status: string
-    subTasks: SubTask[]
+    subtasks: SubTask[]
   }
 
   type Column = {
