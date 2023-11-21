@@ -1,9 +1,9 @@
 'use client'
 
-import BoardIcon from '@components/icons/BoardIcon'
 import { cn } from '@lib/utils'
 import { useBoardActions, useBoardStore } from '@stores/boardStore'
 import CustomButton from '../CustomButton'
+import Icons from '@components/Icons'
 
 function SidebarBoardSwitcher() {
   const { boards, currentBoard } = useBoardStore((state) => ({
@@ -28,7 +28,7 @@ function SidebarBoardSwitcher() {
             isActive={board === currentBoard}
             onClick={() => handleClick(board)}
           >
-            <BoardIcon
+            <Icons.board
               className={cn({
                 'fill-white': board === currentBoard,
                 'group-hover:fill-purple-default': board !== currentBoard,

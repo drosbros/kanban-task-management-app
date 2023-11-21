@@ -2,13 +2,13 @@
 
 import CustomButton from '@components/CustomButton'
 import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
-import BoardIcon from '@components/icons/BoardIcon'
 import Button from '@components/ui/Button'
 import Dialog from '@components/ui/Dialog'
 import { cn } from '@lib/utils'
 import { useBoardActions, useBoardStore } from '@stores/boardStore'
 import Image from 'next/image'
 import { useState } from 'react'
+import Icons from '@components/Icons'
 
 function HeaderBoardSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
@@ -40,7 +40,7 @@ function HeaderBoardSwitcher() {
             isActive={board === currentBoard}
             onClick={() => handleClick(board)}
           >
-            <BoardIcon
+            <Icons.board
               className={cn({
                 'fill-white': board === currentBoard,
                 'group-hover:fill-purple-default': board !== currentBoard,
