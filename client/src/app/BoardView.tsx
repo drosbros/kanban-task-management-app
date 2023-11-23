@@ -1,7 +1,7 @@
 'use client'
 
 import Board from '@components/board/Board'
-import { useBoardActions, useBoardStore } from '@stores/boardStore'
+import { useBoardActions, useBoardStore } from '@states/boardStore'
 import React, { memo, useEffect } from 'react'
 
 type Props = {

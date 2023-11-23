@@ -1,19 +1,17 @@
 'use client'
 
-import { useSidebarActions } from '@stores/sidebarStore'
 import Image from 'next/image'
 import { ComponentPropsWithoutRef } from 'react'
 import CustomButton from '../CustomButton'
+import { closeSidebar } from '@states/sidebarState'
 
 type Props = ComponentPropsWithoutRef<'button'>
 
 function SidebarHideButton(props: Props) {
-  const { close } = useSidebarActions()
-
   return (
     <CustomButton
       {...props}
-      onClick={() => close()}
+      onClick={() => closeSidebar()}
       isActive={false}
       className='flex items-center gap-2 text-gray-medium font-bold text-sm'
     >

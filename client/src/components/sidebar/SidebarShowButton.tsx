@@ -1,20 +1,18 @@
 'use client'
 
 import { cn } from '@lib/utils'
-import { useSidebarActions } from '@stores/sidebarStore'
 import Image from 'next/image'
 import { ComponentPropsWithoutRef } from 'react'
 import Button from '../ui/Button'
+import { openSidebar } from '@states/sidebarState'
 
 type Props = ComponentPropsWithoutRef<typeof Button>
 
 function SidebarShowButton({ className, ...rest }: Props) {
-  const { open } = useSidebarActions()
-
   return (
     <Button
       {...rest}
-      onClick={() => open()}
+      onClick={() => openSidebar()}
       size={'large'}
       className={cn('grid place-items-center px-5 py-4 rounded-l-none', className)}
     >

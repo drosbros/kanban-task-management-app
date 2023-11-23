@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@lib/utils'
-import { useBoardActions, useBoardStore } from '@stores/boardStore'
+import { useBoardActions, useBoardStore } from '@states/boardStore'
 import CustomButton from '../CustomButton'
 import Icons from '@components/Icons'
 

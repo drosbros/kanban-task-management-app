@@ -1,12 +1,13 @@
 'use client'
 
 import { cn } from '@lib/utils'
-import { useSidebarStore } from '@stores/sidebarStore'
+import { sidebarState } from '@states/sidebarState'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
+import { useSnapshot } from 'valtio'
 
 function SidebarTransition({ children }: ChildrenProps) {
-  const isOpen = useSidebarStore((state) => state.isOpen)
+  const { isOpen } = useSnapshot(sidebarState)
 
   return (
     <ScrollContainer
