@@ -11,7 +11,7 @@ function Board({ board }: Props) {
   return (
     <div className='flex gap-6'>
       {board.columns.map((column) => (
-        <BoardColumn key={column.name} column={column} />
+        <BoardColumn key={column.id} column={column} />
       ))}
     </div>
   )

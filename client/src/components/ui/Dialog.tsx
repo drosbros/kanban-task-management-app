@@ -35,7 +35,7 @@ function Dialog({ onClose, open, children, className, ...rest }: Props) {
             >
               <HeadlessDialog.Panel
                 className={cn(
-                  'bg-white dark:bg-gray-dark relative overflow-hidden rounded-lg shadow-xl min-w-[180px] max-w-[450px] w-[75vw]',
+                  'text-left bg-white dark:bg-gray-dark relative overflow-hidden rounded-lg shadow-xl min-w-[180px] max-w-[450px] w-[75vw]',
                   className
                 )}
               >
@@ -49,14 +49,8 @@ function Dialog({ onClose, open, children, className, ...rest }: Props) {
   )
 }
 
-function CustomDialogTitle(props: ComponentProps<typeof HeadlessDialog.Title>) {
-  return (
-    <HeadlessDialog.Title
-      as='h3'
-      className='text-left uppercase text-gray-medium py-4 px-8 text-sm font-bold tracking-widest'
-      {...props}
-    />
-  )
+function CustomDialogTitle({ className, ...rest }: ComponentProps<typeof HeadlessDialog.Title>) {
+  return <HeadlessDialog.Title as='h3' className={cn('text-left text-sm font-bold', className)} {...rest} />
 }
 
 Dialog.Title = CustomDialogTitle

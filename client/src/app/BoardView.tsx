@@ -10,15 +10,15 @@ type Props = {
 
 function BoardView({ boards }: Props) {
   const currentBoard = useBoardStore((state) => state.currentBoard)
-  const { setSelectedBoard, setBoards } = useBoardActions()
+  const { setCurrentBoard, setBoards } = useBoardActions()
 
   useEffect(() => {
     setBoards(boards)
     if (boards.length === 0) return
     if (!currentBoard || !boards.includes(currentBoard)) {
-      setSelectedBoard(boards[0])
+      setCurrentBoard(boards[0])
     }
-  }, [boards, currentBoard, setSelectedBoard, setBoards])
+  }, [boards, currentBoard, setCurrentBoard, setBoards])
 
   return <div>{currentBoard && <Board board={currentBoard} />}</div>
 }

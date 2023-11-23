@@ -17,9 +17,9 @@ function HeaderBoardSwitcher() {
     currentBoard: state.currentBoard,
   }))
 
-  const { setSelectedBoard } = useBoardActions()
+  const { setCurrentBoard } = useBoardActions()
 
-  const handleClick = (board: Board) => setSelectedBoard(board)
+  const handleClick = (board: Board) => setCurrentBoard(board)
 
   return (
     <>
@@ -32,10 +32,12 @@ function HeaderBoardSwitcher() {
         <Image src={`icon/icon-chevron-${isOpen ? 'up' : 'down'}.svg`} alt='' width={10} height={10} />
       </Button>
       <Dialog onClose={setIsOpen} open={isOpen}>
-        <Dialog.Title>All Boards ({boards.length})</Dialog.Title>
-        {boards.map((board, index) => (
+        <Dialog.Title className={'uppercase text-gray-medium tracking-widest px-8 py-4'}>
+          All Boards ({boards.length})
+        </Dialog.Title>
+        {boards.map((board) => (
           <CustomButton
-            key={index}
+            key={board.id}
             className='flex items-center gap-2 group'
             isActive={board === currentBoard}
             onClick={() => handleClick(board)}

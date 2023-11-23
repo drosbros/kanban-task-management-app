@@ -11,9 +11,9 @@ function SidebarBoardSwitcher() {
     currentBoard: state.currentBoard,
   }))
 
-  const { setSelectedBoard } = useBoardActions()
+  const { setCurrentBoard } = useBoardActions()
 
-  const handleClick = (board: Board) => setSelectedBoard(board)
+  const handleClick = (board: Board) => setCurrentBoard(board)
 
   return (
     <div>

@@ -8,7 +8,7 @@ interface BoardState {
 interface BoardActions {
   actions: {
     setBoards: (boards: BoardState['boards']) => void
-    setSelectedBoard: (board: BoardState['currentBoard']) => void
+    setCurrentBoard: (board: BoardState['currentBoard']) => void
   }
 }
 
@@ -17,7 +17,7 @@ export const useBoardStore = create<BoardState & BoardActions>()((set) => ({
   currentBoard: null,
   actions: {
     setBoards: (boards) => set(() => ({ boards })),
-    setSelectedBoard: (currentBoard) => set(() => ({ currentBoard })),
+    setCurrentBoard: (currentBoard) => set(() => ({ currentBoard })),
   },
 }))
 
