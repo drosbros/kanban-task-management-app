@@ -11,13 +11,14 @@ function Header() {
             <Image data-hide-on-theme='light' src='/brand/logo-light.svg' alt='kanban logo' width={153} height={26} />
           </div>
         </div>
+
         <div className='lg:hidden p-4 flex gap-4 py-4 items-center isolate'>
-          <Image src={'/brand/logo-mobile.svg'} alt='kanban logo' width={30} height={31} />
+          <Image src='/brand/logo-mobile.svg' alt='kanban logo' width={30} height={31} />
           <HeaderBoardSwitcher />
         </div>
       </div>
       <div>
-        <Image src={'/icon/icon-options.svg'} alt='options' width={4} height={15} />
+        <Image src='/icon/icon-options.svg' alt='options' width={4} height={15} />
       </div>
     </header>
   )

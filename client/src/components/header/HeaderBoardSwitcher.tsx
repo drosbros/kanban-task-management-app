@@ -20,7 +20,7 @@ function HeaderBoardSwitcher() {
   return (
     <>
       <Button
-        variant={'unstyled'}
+        variant='unstyled'
         className='p-0 flex gap-2 items-center text-lg font-bold'
         onClick={() => setIsOpen(true)}
       >
@@ -28,7 +28,7 @@ function HeaderBoardSwitcher() {
         <Image src={`icon/icon-chevron-${isOpen ? 'up' : 'down'}.svg`} alt='' width={10} height={10} />
       </Button>
       <Dialog onClose={setIsOpen} open={isOpen}>
-        <Dialog.Title className={'uppercase text-gray-medium tracking-widest px-8 py-4'}>
+        <Dialog.Title className='uppercase text-gray-medium tracking-widest px-8 py-4'>
           All Boards ({boards.length})
         </Dialog.Title>
         {boards.map((board) => (
