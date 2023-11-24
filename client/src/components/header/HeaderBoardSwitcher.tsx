@@ -5,19 +5,15 @@ import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
 import Button from '@components/ui/Button'
 import Dialog from '@components/ui/Dialog'
 import { cn } from '@lib/utils'
-import { useBoardActions, useBoardStore } from '@states/boardStore'
+import { boardState, setCurrentBoard } from '@states/boardState'
 import Image from 'next/image'
 import { useState } from 'react'
 import Icons from '@components/Icons'
+import { useSnapshot } from 'valtio'
 
 function HeaderBoardSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
-  const { boards, currentBoard } = useBoardStore((state) => ({
-    boards: state.boards,
-    currentBoard: state.currentBoard,
-  }))
-
-  const { setCurrentBoard } = useBoardActions()
+  const { boards, currentBoard } = useSnapshot(boardState) as typeof boardState
 
   const handleClick = (board: Board) => setCurrentBoard(board)
 

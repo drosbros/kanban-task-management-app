@@ -1,17 +1,15 @@
 'use client'
 
 import { cn } from '@lib/utils'
-import { useBoardActions, useBoardStore } from '@states/boardStore'
 import CustomButton from '../CustomButton'
 import Icons from '@components/Icons'
+import { useSnapshot } from 'valtio'
+import { boardState, setCurrentBoard } from '@states/boardState'
 
 function SidebarBoardSwitcher() {
-  const { boards, currentBoard } = useBoardStore((state) => ({
-    boards: state.boards,
-    currentBoard: state.currentBoard,
-  }))
+  const { boards, currentBoard } = useSnapshot(boardState) as typeof boardState
 
-  const { setCurrentBoard } = useBoardActions()
+  console.log(currentBoard)
 
   const handleClick = (board: Board) => setCurrentBoard(board)
 

@@ -1,23 +1,20 @@
 'use client'
 
 import Board from '@components/board/Board'
-import { useBoardActions, useBoardStore } from '@states/boardStore'
+import { boardState, setBoards, setCurrentBoard } from '@states/boardState'
 import React, { memo, useEffect } from 'react'
+import { useSnapshot } from 'valtio'
 
 type Props = {
   boards: Board[]
 }
 
 function BoardView({ boards }: Props) {
-  const currentBoard = useBoardStore((state) => state.currentBoard)
-  const { setCurrentBoard, setBoards } = useBoardActions()
+  const { currentBoard } = useSnapshot(boardState) as typeof boardState
 
   useEffect(() => {
     setBoards(boards)
     if (boards.length === 0) return
-    if (!currentBoard || !boards.includes(currentBoard)) {
-      setCurrentBoard(boards[0])
-    }
   }, [boards, currentBoard, setCurrentBoard, setBoards])
 
   return <div>{currentBoard && <Board board={currentBoard} />}</div>
