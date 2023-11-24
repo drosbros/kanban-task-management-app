@@ -16,19 +16,16 @@ declare global {
     title: string
     description: string
     status: string
-    subtasks: SubTask[]
   }
 
   type Column = {
     id: string
     name: string
-    tasks: Task[]
   }
 
   type Board = {
     id: string
     name: string
-    columns: Column[]
   }
 }
 
