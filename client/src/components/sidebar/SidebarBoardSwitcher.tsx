@@ -1,17 +1,14 @@
 'use client'
 
-import { cn } from '@lib/utils'
-import CustomButton from '../CustomButton'
 import Icons from '@components/Icons'
-import { useSnapshot } from 'valtio'
-import { boardState, setCurrentBoard } from '@states/boardState'
+import { cn } from '@lib/utils'
+import { useBoardActions, useBoardStore } from '@stores/boardStore'
+import CustomButton from '../CustomButton'
 
 function SidebarBoardSwitcher() {
-  const { boards, currentBoard } = useSnapshot(boardState) as typeof boardState
-
-  console.log(currentBoard)
-
-  const handleClick = (board: Board) => setCurrentBoard(board)
+  const boards = useBoardStore((state) => state.boards)
+  const currentBoard = useBoardStore((state) => state.currentBoard)
+  const { setCurrentBoard } = useBoardActions()
 
   return (
     <div>
@@ -24,7 +21,7 @@ function SidebarBoardSwitcher() {
             key={index}
             className='flex items-center gap-4 group'
             isActive={board === currentBoard}
-            onClick={() => handleClick(board)}
+            onClick={() => setCurrentBoard(board)}
           >
             <Icons.board
               className={cn({

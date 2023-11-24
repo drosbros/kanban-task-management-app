@@ -3,15 +3,17 @@
 import Image from 'next/image'
 import { ComponentPropsWithoutRef } from 'react'
 import CustomButton from '../CustomButton'
-import { closeSidebar } from '@states/sidebarState'
+import { useSidebarActions } from '@stores/sidebarStore'
 
 type Props = ComponentPropsWithoutRef<'button'>
 
 function SidebarHideButton(props: Props) {
+  const { close } = useSidebarActions()
+
   return (
     <CustomButton
       {...props}
-      onClick={() => closeSidebar()}
+      onClick={() => close()}
       isActive={false}
       className='flex items-center gap-2 text-gray-medium font-bold text-sm'
     >

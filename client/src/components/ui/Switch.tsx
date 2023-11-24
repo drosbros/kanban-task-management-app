@@ -9,7 +9,7 @@ function Switch(props: Props) {
   return (
     <HeadlessSwitch
       {...props}
-      className={`bg-purple-default hover:bg-purple-light transition-colors px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full`}
+      className='bg-purple-default hover:bg-purple-light transition-colors px-1 h-6 w-12 shrink-0 cursor-pointer rounded-full'
     >
       <span className='sr-only'>Use setting</span>
       <div

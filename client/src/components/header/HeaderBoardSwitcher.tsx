@@ -5,17 +5,16 @@ import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
 import Button from '@components/ui/Button'
 import Dialog from '@components/ui/Dialog'
 import { cn } from '@lib/utils'
-import { boardState, setCurrentBoard } from '@states/boardState'
 import Image from 'next/image'
 import { useState } from 'react'
 import Icons from '@components/Icons'
-import { useSnapshot } from 'valtio'
+import { useBoardActions, useBoardStore } from '@stores/boardStore'
 
 function HeaderBoardSwitcher() {
   const [isOpen, setIsOpen] = useState(false)
-  const { boards, currentBoard } = useSnapshot(boardState) as typeof boardState
-
-  const handleClick = (board: Board) => setCurrentBoard(board)
+  const boards = useBoardStore((state) => state.boards)
+  const currentBoard = useBoardStore((state) => state.currentBoard)
+  const { setCurrentBoard } = useBoardActions()
 
   return (
     <>
@@ -36,7 +35,7 @@ function HeaderBoardSwitcher() {
             key={board.id}
             className='flex items-center gap-2 group'
             isActive={board === currentBoard}
-            onClick={() => handleClick(board)}
+            onClick={() => setCurrentBoard(board)}
           >
             <Icons.board
               className={cn({

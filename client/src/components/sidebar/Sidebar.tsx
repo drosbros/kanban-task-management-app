@@ -1,19 +1,18 @@
 'use client'
 
+import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
 import { Transition } from '@headlessui/react'
 import { cn } from '@lib/utils'
-import { sidebarState } from '@states/sidebarState'
+import { useSidebarStore } from '@stores/sidebarStore'
 import { ComponentPropsWithRef } from 'react'
-import CustomThemeSwitcher from '@components/CustomThemeSwitcher'
 import SidebarBoardSwitcher from './SidebarBoardSwitcher'
 import SidebarHideButton from './SidebarHideButton'
 import SidebarShowButton from './SidebarShowButton'
-import { useSnapshot } from 'valtio'
 
 type Props = ComponentPropsWithRef<'div'>
 
 function Sidebar({ className, ...rest }: Props) {
-  const { isOpen } = useSnapshot(sidebarState)
+  const isOpen = useSidebarStore((state) => state.isOpen)
 
   return (
     <>
