@@ -1,20 +1,42 @@
 version: '3.8'
 services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - CSRF_TRUSTED_ORIGINS=${CSRF_TRUSTED_ORIGINS}
+      - DEBUG=${DEBUG}
+    depends_on:
+      db:
+        condition: service_healthy
+
   db:
     image: "postgres:15"
     environment:
       - POSTGRES_DB=kanban-db
       - POSTGRES_USER=postgres
+      - PGUSER=postgres
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
       - db:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   db-admin:
     image: "dpage/pgadmin4"
-    depends_on:
-      - db
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
@@ -22,7 +44,9 @@ services:
       - "5050:80"
     volumes:
       - pgadmin:/var/lib/pgadmin
-
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   db:
