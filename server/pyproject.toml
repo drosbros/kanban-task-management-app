@@ -4,7 +4,7 @@ line-length = 120
 [tool.poetry]
 name = "server"
 version = "0.1.0"
-description = "Backend server for kanban board project"
+description = "Backend config for kanban board project"
 authors = ["Michał Droś <michal.dros01@gmail.com>"]
 readme = "README.md"
 

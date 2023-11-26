@@ -43,7 +43,7 @@ next-env.d.ts
 *.fig
 /client/designs
 
-# server
+# config
 /.idea
 **/.venv
 __pycache__/
