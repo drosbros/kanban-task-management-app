@@ -1,6 +1,6 @@
 'use client'
 
-import { ThemeSwitcher } from '@components/theme/ThemeSwitcher'
+import { ThemeSwitcher } from '@components/ThemeSwitcher'
 import Image from 'next/image'
 import sun from '/public/icon/icon-light-theme.svg'
 import moon from '/public/icon/icon-dark-theme.svg'

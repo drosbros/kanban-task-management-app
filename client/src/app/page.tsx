@@ -1,6 +1,8 @@
 import fs from 'fs/promises'
 import path from 'path'
 import BoardView from './BoardView'
+import { getClient } from '@lib/apolloClient'
+import { gql } from '@apollo/client'
 
 async function getMockData() {
   const filePath = path.join(process.cwd(), 'json/data.json')

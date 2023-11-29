@@ -1,6 +1,12 @@
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
+import { registerApolloClient } from '@apollo/experimental-nextjs-app-support/rsc'
+import { GRAPHQL_URI } from '@config/config'
 
-const client = new ApolloClient({
-  uri: '',
-  cache: new InMemoryCache(),
+export const { getClient } = registerApolloClient(() => {
+  return new ApolloClient({
+    cache: new InMemoryCache(),
+    link: new HttpLink({
+      uri: GRAPHQL_URI,
+    }),
+  })
 })
