@@ -21,8 +21,8 @@ jobs:
           CSRF_TRUSTED_ORIGINS: ${{ secrets.CSRF_TRUSTED_ORIGINS }}
         run: |
           flyctl deploy --remote-only \
-            --build-secret DATABASE_URL="${DATABASE_URL}" \
-            --build-secret SECRET_KEY="${SECRET_KEY}" \
-            --build-secret ALLOWED_HOSTS="${ALLOWED_HOSTS}" \
-            --build-secret CSRF_TRUSTED_ORIGINS="${CSRF_TRUSTED_ORIGINS}" \
+            --build-arg DATABASE_URL="${DATABASE_URL}" \
+            --build-arg SECRET_KEY="${SECRET_KEY}" \
+            --build-arg ALLOWED_HOSTS="${ALLOWED_HOSTS}" \
+            --build-arg CSRF_TRUSTED_ORIGINS="${CSRF_TRUSTED_ORIGINS}" \
             --config ./server/deployment/dev/fly.toml
