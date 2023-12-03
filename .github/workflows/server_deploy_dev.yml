@@ -1,9 +1,11 @@
 name: Dev Server Deploy
 on:
   pull_request:
-    types: [opened, closed]
+    types: [closed]
     branches:
       - main
+  workflow_dispatch: true
+
 jobs:
   deploy:
     name: Deploy server
