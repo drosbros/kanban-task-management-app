@@ -1,8 +1,8 @@
 import graphene
-from graphql_jwt.decorators import login_required
 
 from categories.graphql.types import CategoryType
 from categories.models import Category
+from commons.utils import graphql_resolver
 
 
 class CreateCategory(graphene.Mutation):
@@ -13,8 +13,7 @@ class CreateCategory(graphene.Mutation):
         name = graphene.String()
         board_id = graphene.Int()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(root, info, name: str, board_id: int):
         category = Category.objects.create(name=name, board_id=board_id, creator=info.context.user)
         return CreateCategory(ok=True, category=category)
@@ -27,8 +26,7 @@ class DeleteCategory(graphene.Mutation):
     class Arguments:
         category_id = graphene.Int()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(root, info, category_id: int):
         category = Category.objects.filter(pk=category_id).first()
 
