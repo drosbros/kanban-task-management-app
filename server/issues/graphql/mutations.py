@@ -1,10 +1,10 @@
 import graphene
 from graphql import GraphQLError
-from graphql_jwt.decorators import login_required
 
 from accounts.models import User
 from boards.models import Board
 from categories.models import Category
+from commons.utils import graphql_resolver
 from issues.graphql.types import IssueType
 from issues.models import Issue
 
@@ -21,8 +21,7 @@ class CreateIssue(graphene.Mutation):
         assignee_id = graphene.Int(required=False, default_value=None)
         category_id = graphene.Int(required=False, default_value=None)
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(
         root,
         info,
@@ -61,8 +60,7 @@ class DeleteIssue(graphene.Mutation):
     class Arguments:
         issue_id = graphene.Int()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(_, _info, issue_id: int):
         issue = Issue.objects.filter(pk=issue_id).first()
 

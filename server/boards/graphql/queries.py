@@ -1,8 +1,8 @@
 import graphene
-from graphql_jwt.decorators import login_required
 
 from boards.graphql.types import BoardType
 from boards.models import Board
+from commons.utils import graphql_resolver
 
 
 class Query(graphene.ObjectType):
@@ -10,17 +10,14 @@ class Query(graphene.ObjectType):
     board_by_id = graphene.Field(BoardType, pk=graphene.Int())
     boards_by_creator_id = graphene.Field(BoardType, pk=graphene.Int())
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def resolve_boards(_, info, **kwargs):
         return Board.objects.all()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def resolve_board_by_id(_, _info, pk: int, **kwargs):
         return Board.objects.filter(pk=pk).first()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def resolve_boards_by_creator_id(_, _info, pk: int, **kwargs):
         return Board.objects.filter(creator_id=pk).first()
