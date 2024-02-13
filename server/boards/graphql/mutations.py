@@ -1,8 +1,8 @@
 import graphene
-from graphql_jwt.decorators import login_required
 
 from boards.graphql.types import BoardType
 from boards.models import Board
+from commons.utils import graphql_resolver
 
 
 class CreateBoard(graphene.Mutation):
@@ -12,8 +12,7 @@ class CreateBoard(graphene.Mutation):
     class Arguments:
         name = graphene.String()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(root, info, name: str):
         board = Board.objects.create(name=name, creator=info.context.user)
         return CreateBoard(ok=True, board=board)
@@ -26,8 +25,7 @@ class DeleteBoard(graphene.Mutation):
     class Arguments:
         board_id = graphene.Int()
 
-    @staticmethod
-    @login_required
+    @graphql_resolver
     def mutate(root, info, board_id: int):
         board = Board.objects.filter(pk=board_id).first()
 

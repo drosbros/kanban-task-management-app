@@ -21,7 +21,7 @@ services:
   db:
     image: "postgres:15"
     environment:
-      - POSTGRES_DB=kanban-db
+      - POSTGRES_DB=drosbros_kanban
       - POSTGRES_USER=postgres
       - PGUSER=postgres
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
